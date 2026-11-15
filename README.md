@@ -2,7 +2,7 @@
 
 **원문을 실제로 분석하여 번역·현지화 하네스를 작성하는 범용 Agent Skill.** 단순 폴더/표 양식 생성에 그치지 않고, 원본 파일의 전체 접근 가능 범위를 읽어 인물의 상대별 화법, 서사·정보 공개, 용어와 예외, UI·매체 제약, 출처가 있는 번역 판단을 프로젝트별 Markdown 문서에 채우도록 지시합니다.
 
-**버전: `0.5.0` (개발 단계).** 복잡한 실제 프로젝트에서 결과 품질을 계속 검증해야 합니다. 원본을 못 읽거나 일부만 분석했다면 완료를 주장하지 않고, 조사 원장에 미완료·재개 지점을 남기도록 설계했습니다.
+**버전: `0.5.1` (개발 단계).** 복잡한 실제 프로젝트에서 결과 품질을 계속 검증해야 합니다. 원본을 못 읽거나 일부만 분석했다면 완료를 주장하지 않고, 조사 원장에 미완료·재개 지점을 남기도록 설계했습니다.
 
 이 저장소는 GitHub에서 공유할 수 있는 다음 배포 형식을 제공합니다.
 
@@ -16,12 +16,12 @@ MCP 서버·실행용 Python 코드를 포함하지 않습니다. Skill은 Markd
 
 ## 설치
 
-아래 `OWNER/REPO`를 공개 GitHub 저장소의 소유자/이름으로 교체합니다. **이 저장소의 파일을 GitHub 최상위에 업로드**하세요. `.agents/`와 `.claude-plugin/` 디렉터리를 누락하지 마세요.
+**이 저장소의 파일을 GitHub 최상위에 업로드**하세요. `.agents/`와 `.claude-plugin/` 디렉터리를 누락하지 마세요.
 
 ### Codex
 
 ```bash
-codex plugin marketplace add OWNER/REPO
+codex plugin marketplace add booksky91/translation-harness-builder
 ```
 
 Codex에서 해당 Marketplace의 `translation-harness-builder` 플러그인을 설치합니다. CLI에서 설치 명령이 제공되는 버전이라면 다음을 사용합니다.
@@ -37,12 +37,13 @@ codex plugin marketplace list
 codex plugin marketplace upgrade translation-harness-marketplace
 ```
 
-Marketplace 발견 오류가 뜨면 GitHub 저장소 루트의 `.agents/plugins/marketplace.json` 경로와 `plugins/translation-harness-builder/`가 실제로 있는지 확인합니다.
+Marketplace source is now the Git repository root (not a plugins/ subdirectory). Verify .agents/plugins/marketplace.json and the root plugin.json if installation fails.
 
 ### Claude Code
 
 ```bash
-claude plugin marketplace add OWNER/REPO
+claude plugin marketplace add booksky91/translation-harness-builder
+claude plugin marketplace update translation-harness-marketplace
 claude plugin install translation-harness-builder@translation-harness-marketplace
 ```
 
@@ -51,12 +52,15 @@ claude plugin install translation-harness-builder@translation-harness-marketplac
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/OWNER/REPO
+gemini extensions install https://github.com/booksky91/translation-harness-builder
 ```
 
 설치 확인: `gemini extensions list`. Gemini CLI는 저장소 최상위 `skills/`의 동일한 Skill을 읽습니다.
 
 > 위 설치 안내는 각 도구의 플러그인·확장 기능을 지원하는 버전 기준입니다. GitHub에 저장소를 만든 것만으로 다른 사용자의 환경에 자동 설치되지는 않습니다.
+
+
+After an upgrade, confirm the installed version is 0.5.1 and start a new session. An old cache path ending in 4.3.0 indicates a stale installation.
 
 ## 사용 방법
 
@@ -129,16 +133,19 @@ YOUR_PROJECT/
 
 ```text
 .
-├── README.md
-├── .agents/plugins/marketplace.json       # Codex Marketplace
-├── .claude-plugin/marketplace.json        # Claude Code Marketplace
-├── gemini-extension.json                  # Gemini CLI Extension
-├── skills/translation-harness-builder/   # Gemini Skill 사본
-├── templates/translation-harness/        # 프로젝트용 문서 양식
-└── plugins/translation-harness-builder/   # Codex·Claude Plugin
-    ├── plugin.json
-    ├── .codex-plugin/plugin.json
-    ├── .claude-plugin/plugin.json
-    ├── skills/translation-harness-builder/
-    └── templates/translation-harness/
+|-- README.md
+|-- LICENSE
+|-- plugin.json                      # Portable plugin manifest, version 0.5.1
+|-- .codex-plugin/plugin.json       # Codex compatibility manifest
+|-- .claude-plugin/
+|   |-- plugin.json                 # Claude Code plugin manifest
+|   `-- marketplace.json            # Claude Code marketplace (GitHub source)
+|-- .agents/plugins/marketplace.json # Codex marketplace (Git URL source)
+|-- gemini-extension.json           # Gemini extension manifest
+|-- skills/
+|   `-- translation-harness-builder/
+|       |-- SKILL.md
+|       |-- agents/openai.yaml
+|       `-- references/             # 11 reference manuals
+`-- templates/translation-harness/ # Optional starter documents
 ```

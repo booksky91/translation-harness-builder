@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "translation-harness-builder",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Build and maintain evidence-grounded translation and localization harnesses with linked policies, glossaries, character and story knowledge, QA records, and agent rules.",
   "keywords": [
     "translation",
@@ -27,5 +27,12 @@
         ]
       }
     }
+  },
+  "repository": "https://github.com/booksky91/translation-harness-builder",
+  "homepage": "https://github.com/booksky91/translation-harness-builder",
+  "license": "MIT",
+  "author": {
+    "name": "booksky91",
+    "url": "https://github.com/booksky91/translation-harness-builder"
   }
 }

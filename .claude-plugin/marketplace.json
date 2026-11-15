@@ -1,14 +1,18 @@
 {
   "name": "translation-harness-marketplace",
-  "description": "Reusable translation and localization workflow skills.",
+  "description": "Evidence-grounded localization harness construction and maintenance.",
   "owner": {
-    "name": "Repository Maintainer"
+    "name": "booksky91"
   },
   "plugins": [
     {
       "name": "translation-harness-builder",
-      "source": "./plugins/translation-harness-builder",
-      "description": "Create and maintain a linked translation harness from project sources."
+      "source": {
+        "source": "github",
+        "repo": "booksky91/translation-harness-builder",
+        "ref": "main"
+      },
+      "description": "Build and populate a translation harness from real project sources."
     }
   ]
 }

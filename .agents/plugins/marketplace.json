@@ -7,8 +7,9 @@
     {
       "name": "translation-harness-builder",
       "source": {
-        "source": "local",
-        "path": "./plugins/translation-harness-builder"
+        "source": "url",
+        "url": "https://github.com/booksky91/translation-harness-builder.git",
+        "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
