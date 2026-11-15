@@ -1,12 +1,15 @@
 {
   "name": "translation-harness-builder",
-  "version": "4.3.0",
+  "version": "0.5.0",
   "description": "Build and maintain a project-specific translation harness from source evidence.",
   "skills": "./skills/",
   "interface": {
     "displayName": "Translation Harness Builder",
     "shortDescription": "번역 하네스 문서 및 Rule 구축",
     "category": "Productivity",
-    "capabilities": ["Read", "Write"]
+    "capabilities": [
+      "Read",
+      "Write"
+    ]
   }
 }

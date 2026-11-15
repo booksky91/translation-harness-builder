@@ -404,3 +404,7 @@
 - `01_EXECUTION.md`는 **반복 작업 순서**, `PROMPT_TEMPLATE.md`는 **모델 입력/출력 규약**, `TRANSLATION_GUIDE.md`는 **필요 자료 조회 순서**를 각각 담당한다.
 
 이 분리가 깨지면 상위 문서를 요약만 읽고 상세 사실을 놓치기 쉽다. 각 문서의 역할을 겹치게 쓰지 말고 링크로 연결하라.
+
+## 원문 내용 채우기와 상태 표시
+
+위 섹션은 문서 구조의 요구 사항이다. 원본 자료가 있으면 [corpus-ingestion.md](corpus-ingestion.md)에 따라 전체 조사 범위를 읽고 [semantic-population.md](semantic-population.md)의 실제 문장·조건·반례·출처 기록법으로 모든 관련 섹션을 채운다. `README.md`의 상태에는 `SCAFFOLD_ONLY/POPULATING/DRAFT_CONTENT_COMPLETE` 등의 실제 수준과 미완료 범위를 기록한다. 비어 있는 양식을 내용 완료로 표시하지 않는다. 다중 프로젝트의 README·라우터는 [workspace-scoping.md](workspace-scoping.md)에 따라 대상별로 따로 관리한다.

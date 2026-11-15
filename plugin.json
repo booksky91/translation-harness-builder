@@ -1,20 +1,29 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "translation-harness-builder",
-  "version": "4.3.0",
+  "version": "0.5.0",
   "description": "Build and maintain evidence-grounded translation and localization harnesses with linked policies, glossaries, character and story knowledge, QA records, and agent rules.",
-  "keywords": ["translation", "localization", "agent-skills", "glossary", "quality-assurance"],
+  "keywords": [
+    "translation",
+    "localization",
+    "agent-skills",
+    "glossary",
+    "quality-assurance"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Translation Harness Builder",
-        "shortDescription": "번역 하네스 구축·관리 및 프로젝트 Rule 연결",
-        "longDescription": "프로젝트 근거를 바탕으로 번역 문서 계층, 용어, 인물·서사 지식, 운영 기록과 에이전트 규칙을 구축하고 갱신합니다.",
+        "shortDescription": "원문 전수 조사·번역 하네스 실내용 작성·검증",
+        "longDescription": "프로젝트의 원본·스크립트를 실제 분석해 용어, 인물별 화법, 사건·정보 공개, 기술 제약과 번역 판단 근거를 하네스에 작성하고 진행 범위·Rule을 관리합니다.",
         "developerName": "Repository Maintainer",
         "category": "Productivity",
-        "capabilities": ["Read", "Write"],
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
         "defaultPrompt": [
-          "현재 프로젝트를 조사해 translation-harness 문서 체계를 구축하고 번역 전 필독 Rule을 연결해줘."
+          "현재 프로젝트의 접근 가능한 원본 전체를 조사하고 번역에 필요한 인물·관계·스토리·용어·기술 지식을 실제 translation-harness 문서에 채워줘. 원본 대비 내용 반영 범위와 미완료를 검증해줘."
         ]
       }
     }
