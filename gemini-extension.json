@@ -1,0 +1,5 @@
+{
+  "name": "translation-harness-builder",
+  "version": "4.3.0",
+  "description": "Create and maintain structured, evidence-grounded translation harnesses for long-running localization projects."
+}
