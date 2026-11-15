@@ -1,0 +1,5 @@
+{
+  "name": "translation-harness-builder",
+  "version": "4.3.0",
+  "description": "Build and maintain an evidence-grounded translation harness for a project."
+}
