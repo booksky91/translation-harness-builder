@@ -1,0 +1,14 @@
+{
+  "name": "translation-harness-marketplace",
+  "description": "Reusable translation and localization workflow skills.",
+  "owner": {
+    "name": "Repository Maintainer"
+  },
+  "plugins": [
+    {
+      "name": "translation-harness-builder",
+      "source": "./plugins/translation-harness-builder",
+      "description": "Create and maintain a linked translation harness from project sources."
+    }
+  ]
+}
